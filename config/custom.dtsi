@@ -1,0 +1,26 @@
+htap: hold-tap {
+    compatible = "zmk,behavior-hold-tap";
+    label = "HOLD_TAP";
+    #binding-cells = <2>;
+    flavor = "hold-preferred";
+    tapping-term-ms = <200>;
+    quick-tap-ms = <125>;
+    bindings = <&mo>, <&to>;
+};
+
+bsp_mod: backspace_mod {
+    compatible = "zmk,behavior-mod-morph";
+    label = "BACKSPACE_MOD";
+    #binding-cells = <0>;
+    bindings = <&htap 1 2>, <&kp BACKSPACE>;
+    mods = <MOD_RSFT>;
+};
+
+minus_pipe: minus_pipe_morph {
+    compatible = "zmk,behavior-mod-morph";
+    label = "MINUS_PIPE";
+    #binding-cells = <0>;
+    bindings = <&kp MINUS>, <&kp BACKSLASH>;
+    mods = <(MOD_LSFT|MOD_RSFT)>;
+    keep-mods = <(MOD_LSFT|MOD_RSFT)>;
+};
