@@ -59,13 +59,13 @@
 // |       |     |     |      |      |      |                   |  ~   |   [   |   ]   |  {   |   }   |   +   |
 // |       |     |     |      |      |      |                   |      |       |       |      |   =   |   `   |
 // |       |     |     |      |      |      |        |  |       |      |       |       |      |   \   |       |
-//                     |      |      |      |        |  |       |      |       |       |
+//                     |      |      |      |        |  |       |  _   |       |       |
             bindings = <
-&to 0 &to 0 &to 0 &to 0 &to 0 &to 0                     &to 0           &to 0           &to 0           &to 0             &to 0             &to 0
-&to 0 &to 0 &to 0 &to 0 &to 0 &to 0         &macro_tilde_to_0 &macro_lsb_to_0 &macro_rsb_to_0 &macro_lcb_to_0   &macro_rcb_to_0  &macro_plus_to_0
-&to 0 &to 0 &to 0 &to 0 &to 0 &to 0                     &to 0           &to 0           &to 0           &to 0 &macro_equal_to_0 &macro_grave_to_0
-&to 0 &to 0 &to 0 &to 0 &to 0 &to 0 &to 0 &to 0   &to 0 &to 0           &to 0           &to 0           &to 0             &to 0             &to 0
-                 &to 0 &to 0 &to 0 &to 0 &to 0    &to 0 &to 0           &to 0           &to 0
+&to 0 &to 0 &to 0 &to 0 &to 0 &to 0                                      &to 0           &to 0           &to 0           &to 0                 &to 0             &to 0
+&to 0 &to 0 &to 0 &to 0 &to 0 &to 0                          &macro_tilde_to_0 &macro_lsb_to_0 &macro_rsb_to_0 &macro_lcb_to_0       &macro_rcb_to_0  &macro_plus_to_0
+&to 0 &to 0 &to 0 &to 0 &to 0 &to 0                                      &to 0           &to 0           &to 0           &to 0     &macro_equal_to_0 &macro_grave_to_0
+&to 0 &to 0 &to 0 &to 0 &to 0 &to 0 &to 0                          &to 0 &to 0           &to 0           &to 0           &to 0 &macro_backslash_to_0             &to 0
+                       &to 0 &to 0 &to 0 &to 0     &macro_underscore_to_0 &to 0           &to 0           &to 0
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
