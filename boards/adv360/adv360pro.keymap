@@ -1,0 +1,51 @@
+/*
+ * Copyright (c) 2020 The ZMK Contributors
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+
+/ {
+  behaviors {
+    #include "macros.dtsi"
+    #include "custom.dtsi"
+  };
+
+    keymap {
+        compatible = "zmk,keymap";
+
+        default_layer {
+            bindings = <
+         &none  &kp N1  &kp N2    &kp N3     &kp N4  &kp N5               &none                                                                        &none  &kp N6  &kp N7     &kp N8   &kp N9    &kp N0        &none
+       &kp TAB   &kp Q   &kp W     &kp F      &kp P   &kp G               &none                                                                        &none   &kp J   &kp L      &kp U    &kp Y  &kp SEMI  &minus_pipe
+ &mt LCTRL ESC   &kp A   &kp R     &kp S      &kp T   &kp D               &none  &kp LCTRL  &kp LALT                   &kp LGUI  &kp RCTRL             &none   &kp H   &kp N      &kp E    &kp I     &kp O      &kp SQT
+     &kp LSHFT   &kp Z   &kp X     &kp C      &kp V   &kp B                                 &kp HOME                  &kp PG_UP                                &kp K   &kp M  &kp COMMA  &kp DOT  &kp FSLH        &none
+         &none   &none   &none  &kp LEFT  &kp RIGHT                    &bsp_mod    &kp DEL   &kp END                  &kp PG_DN  &kp ENTER  &mt RSHIFT SPACE          &kp UP   &kp DOWN    &none     &none        &none
+            >;
+        };
+
+        layer_LTHUMB {
+            bindings = <
+         &none   &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3   &bt BT_SEL 4            &none                                                                &none     &none          &none      &none      &none   &none   &none
+ &kp LA(LG(Y))          &none          &none          &none          &none          &none            &none                                                                &none     &none          &none      &none      &none   &none   &none
+ &kp LA(LG(X))  &kp LA(LG(A))  &kp LA(LG(R))  &kp LA(LG(S))  &kp LA(LG(T))  &kp LA(LG(D))            &none   &none  &bootloader                  &bootloader   &none      &none  &kp LEFT       &kp DOWN     &kp UP  &kp RIGHT   &none   &none
+         &none          &none          &none          &none          &none     &kp DELETE                                 &none                        &none                     &kp HOME  &kp PAGE_DOWN  &kp PG_UP    &kp END   &none   &none
+    &bt BT_CLR          &none          &none          &none          &none                           &none   &none        &none                        &none   &none  &kp ENTER                    &none      &none      &none   &none   &none
+            >;
+        };
+
+        layer_LTHUMB_STICKY {
+            bindings = <
+  &to 0   &to 0   &to 0   &to 0   &to 0   &to 0            &to 0                                                                   &to 0              &to 0            &to 0  &macro_lock_to_0            &to 0                  &to 0              &to 0
+  &to 0   &to 0   &to 0   &to 0   &to 0   &to 0            &to 0                                                                   &to 0  &macro_tilde_to_0  &macro_lsb_to_0   &macro_rsb_to_0  &macro_lcb_to_0        &macro_rcb_to_0   &macro_plus_to_0
+  &to 0   &to 0   &to 0   &to 0   &to 0   &to 0            &to 0   &to 0   &to 0                   &to 0   &to 0                   &to 0              &to 0            &to 0             &to 0            &to 0      &macro_equal_to_0  &macro_grave_to_0
+  &to 0   &to 0   &to 0   &to 0   &to 0   &to 0                            &to 0                   &to 0                                              &to 0            &to 0             &to 0            &to 0  &macro_backslash_to_0              &to 0
+  &to 0   &to 0   &to 0   &to 0   &to 0                    &to 0   &to 0   &to 0                   &to 0   &to 0  &macro_underscore_to_0                               &to 0             &to 0            &to 0                  &to 0              &to 0
+            >;
+        };
+
+    };
+};
