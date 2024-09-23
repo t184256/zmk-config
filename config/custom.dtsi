@@ -16,7 +16,7 @@ bsp_mod: backspace_mod {
     mods = <MOD_RSFT>;
 };
 
-minus_pipe: minus_pipe_morph {
+minuspipe: minuspipe_morph {
     compatible = "zmk,behavior-mod-morph";
     label = "MINUS_PIPE";
     #binding-cells = <0>;
