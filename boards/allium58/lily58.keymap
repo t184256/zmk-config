@@ -18,54 +18,54 @@
         compatible = "zmk,keymap";
 
         default_layer {
-// ------------------------------------------------------------------------------------------------------------
-// |       |  1  |  2  |  3   |  4   |  5   |                   |  6   |  7    |  8    |  9   |   0   |       |
-// |  TAB  |  Q  |  W  |  F   |  P   |  G   |                   |  J   |  L    |  U    |  Y   |   ;   |  - |  |
-// |CTRLESC|  A  |  R  |  S   |  T   |  D   |                   |  H   |  N    |  E    |  I   |   O   |   '   |
-// | SHIFT |  Z  |  X  |  C   |  V   |  B   |        |  |       |  K   |  M    |  ,    |  .   |   /   |       |
-//                     |      | LEFT | RIGHT| LTHUMB |  | RTHUMB|  UP  | DOWN  |       |
             bindings = <
-        &none &kp N1 &kp N2 &kp N3   &kp N4   &kp N5                            &kp N6 &kp N7   &kp N8    &kp N9  &kp N0   &none
-      &kp TAB &kp Q  &kp W  &kp F    &kp P    &kp G                             &kp J  &kp L    &kp U     &kp Y   &kp SEMI &minus_pipe
-&mt LCTRL ESC &kp A  &kp R  &kp S    &kp T    &kp D                             &kp H  &kp N    &kp E     &kp I   &kp O    &kp SQT
-    &kp LSHFT &kp Z  &kp X  &kp C    &kp V    &kp B  &none                &none &kp K  &kp M    &kp COMMA &kp DOT &kp FSLH &none
-                           &none &kp LEFT &kp RIGHT  &bsp_mod  &mt RSHIFT SPACE &kp UP &kp DOWN &none
+// ╭──────────┬──────────┬──────────┬──────────┬──────────┬──────────╮                       ╭──────────┬──────────┬──────────┬──────────┬──────────┬──────────╮
+      &none      &kp N1     &kp N2     &kp N3     &kp N4     &kp N5                             &kp N6     &kp N7     &kp N8     &kp N9     &kp N0      &none
+// ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤                       ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
+     &kp TAB     &kp Q      &kp W      &kp F      &kp P      &kp G                               &kp J      &kp L      &kp U      &kp Y    &kp SEMI  &minuspipe
+// ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤                       ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
+ &mt LCTRL ESC   &kp A      &kp R      &kp S      &kp T      &kp D                               &kp H      &kp N      &kp E      &kp I      &kp O     &kp SQT
+// ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤╭─────────╮ ╭─────────╮├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
+    &kp LSHFT    &kp Z      &kp X      &kp C      &kp V      &kp B       &none       &none       &kp K      &kp M   &kp COMMA    &kp DOT   &kp FSLH     &none
+// ╰──────────┴──────────┴─────┬────┴─────┬─────┴────┬────┴─────┬────╯╰─────────╯ ╰─────────╯╰─────┬────┴─────┬────┴─────┬─────┴────┬────┴──────────┴──────────╯
+                                  &none     &kp LEFT  &kp RIGHT      &bsp_mod     &mt RSHIFT SPACE    &kp UP    &kp DOWN    &none
+//                             ╰──────────┴──────────┴──────────╯ ╰─────────────╯ ╰──────────────╯ ╰──────────┴──────────┴──────────╯
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
         layer_LTHUMB {
-// ------------------------------------------------------------------------------------------------------------
-// |       | BT1 | BT2 |  BT3 |  BT4 |  BT5 |                   |      |       |       |      |       |       |
-// |  !Y   |  F2 |  F3 |  F4  |  F5  |  F6  |                   |      |       |       |      |       |       |
-// |  !X   |  !A |  !R |  !S  |  !T  |  !D  |                   |  LT  |  DN   |  UP   |  RT  |       |       |
-// |       |     |     |      |      |      |        |  |       | HOME |  PD   |  PU   |  END |       |       |
-//                     | BTCLR|      |      |        |  |       |ENTER |       |       |
             bindings = <
-&none         &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                  &none     &none         &none       &none     &none     &none
-&kp LA(LG(Y)) &none         &none         &none         &none         &none                         &none     &none         &none       &none     &none     &none
-&kp LA(LG(X)) &kp LA(LG(A)) &kp LA(LG(R)) &kp LA(LG(S)) &kp LA(LG(T)) &kp LA(LG(D))                 &kp LEFT  &kp DOWN      &kp UP      &kp RIGHT &none     &none
-&none         &none         &none         &none         &none         &kp DELETE &none    &none     &kp HOME  &kp PAGE_DOWN &kp PAGE_UP &kp END   &none     &none
-                                          &bt BT_CLR    &none         &none      &none    &kp ENTER &none     &none         &none
+// ╭──────────┬──────────┬──────────┬──────────┬──────────┬──────────╮                       ╭──────────┬──────────┬──────────┬──────────┬──────────┬──────────╮
+      &none    &bt_sel 0  &bt_sel 1  &bt_sel 2  &bt_sel 3  &bt_sel 4                             &none      &none      &none      &none      &none      &none
+// ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤                       ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
+     &m_wm Y     &none      &none      &none      &none      &none                               &none      &none      &none      &none      &none      &none
+// ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤                       ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
+     &m_wm X    &m_wm A    &m_wm R    &m_wm S    &m_wm T    &m_wm D                            &kp LEFT   &kp DOWN    &kp UP    &kp RIGHT    &none      &none
+// ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤╭─────────╮ ╭─────────╮├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
+       &none     &none      &none      &none      &none    &kp DELETE    &none       &none   &kp HOME &kp PAGE_DOWN &kp PAGE_UP  &kp END     &none      &none
+// ╰──────────┴──────────┴─────┬────┴─────┬─────┴────┬────┴─────┬────╯╰─────────╯ ╰─────────╯╰─────┬────┴─────┬────┴─────┬────┴─────┬────┴──────────┴──────────╯
+                                &bt BT_CLR    &none     &none          &none          &kp ENTER       &none     &none       &none
+//                             ╰──────────┴──────────┴──────────╯ ╰─────────────╯ ╰──────────────╯ ╰──────────┴──────────┴──────────╯
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
         layer_LTHUMB_STICKY {
-// ------------------------------------------------------------------------------------------------------------
-// |       |     |     |      |      |      |                   |      |       |       |      |       |       |
-// |       |     |     |      |      |      |                   |  ~   |   [   |   ]   |  {   |   }   |   +   |
-// |       |     |     |      |      |      |                   |      |       |       |      |   =   |   `   |
-// |       |     |     |      |      |      |        |  |       |      |       |       |      |   \   |       |
-//                     |      |      |      |        |  |       |  _   |       |       |
             bindings = <
-&to 0 &to 0 &to 0 &to 0 &to 0 &to 0                                      &to 0           &to 0           &to 0           &to 0                 &to 0             &to 0
-&to 0 &to 0 &to 0 &to 0 &to 0 &to 0                          &macro_tilde_to_0 &macro_lsb_to_0 &macro_rsb_to_0 &macro_lcb_to_0       &macro_rcb_to_0  &macro_plus_to_0
-&to 0 &to 0 &to 0 &to 0 &to 0 &to 0                                      &to 0           &to 0           &to 0           &to 0     &macro_equal_to_0 &macro_grave_to_0
-&to 0 &to 0 &to 0 &to 0 &to 0 &to 0 &to 0                          &to 0 &to 0           &to 0           &to 0           &to 0 &macro_backslash_to_0             &to 0
-                       &to 0 &to 0 &to 0 &to 0     &macro_underscore_to_0 &to 0           &to 0           &to 0
+// ╭──────────┬──────────┬──────────┬──────────┬──────────┬──────────╮                       ╭──────────┬──────────┬──────────┬──────────┬──────────┬──────────╮
+      &to 0      &to 0      &to 0      &to 0      &to 0      &to 0                               &to 0      &to 0    &m_lock0     &to 0      &to 0      &to 0
+// ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤                       ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
+      &to 0      &to 0      &to 0      &to 0      &to 0      &to 0                             &m_tilde0   &m_lsb0    &m_rsb0    &m_lcb0    &m_rcb0   &m_plus0
+// ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤                       ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
+      &to 0      &to 0      &to 0      &to 0      &to 0      &to 0                               &to 0      &to 0      &to 0      &to 0    &m_equal0  &m_grave0
+// ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤╭─────────╮ ╭─────────╮├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
+      &to 0      &to 0      &to 0      &to 0      &to 0      &to 0       &to 0       &to 0       &to 0      &to 0      &to 0      &to 0     &m_bsl0     &to 0
+// ╰──────────┴──────────┴─────┬────┴─────┬─────┴────┬────┴─────┬────╯╰─────────╯ ╰─────────╯╰─────┬────┴─────┬────┴─────┬────┴─────┬────┴──────────┴──────────╯
+                                  &to 0      &to 0      &to 0          &to 0           &m_und0         &to 0      &to 0      &to 0
+//                             ╰──────────┴──────────┴──────────╯ ╰─────────────╯ ╰──────────────╯ ╰──────────┴──────────┴──────────╯
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
