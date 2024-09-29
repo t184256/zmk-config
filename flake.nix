@@ -16,7 +16,7 @@
       ".conf" ".keymap" ".dtsi" ".yml" ".shield" ".overlay" ".defconfig"
     ];
     src = nixpkgs.lib.sourceFilesBySuffices self suffices;
-    zephyrDepsHash = "sha256-/BnFVZbNT3wG1YMci9htCKDuGj82u6DT/JtgFvN1fJA=";
+    zephyrDepsHash = "sha256-agazot1BTSrrYVB7c3781EUbClc/sL5tnTDWaP7sozI=";
     meta = {
       description = "ZMK firmware";
       license = nixpkgs.lib.licenses.mit;
