@@ -1,35 +1,17 @@
-#define CZ_0(name, accent, key) \
-	name ## _lower: name ## _upper { compatible = "zmk,behavior-macro"; \
-		#binding-cells = <0>; \
-		bindings = <&kp accent>, <&kp key>, <&to 0>; \
-	}; \
-	name ## _upper: name ## _lower { compatible = "zmk,behavior-macro"; \
-		#binding-cells = <0>; \
-		bindings = <&kp accent>, <&kp LS(key)>, <&to 0>; \
-	}; \
-	name: name { \
-		compatible = "zmk,behavior-mod-morph"; \
-		#binding-cells = <0>; \
-		mods = <(MOD_LSFT|MOD_RSFT)>; \
-		bindings = <&name ## _lower>, <&name ## _upper>; \
-	};
+#include "unicode.dtsi"
 
-#define CARKA RA(SQT)
-#define HACEK RA(RS(DOT))
-#define KROUZEK RA(RS(N0))
-
-CZ_0(cz_Ac0, CARKA, A)
-CZ_0(cz_Ch0, HACEK, C)
-CZ_0(cz_Dh0, HACEK, D)
-CZ_0(cz_Ec0, CARKA, E)
-CZ_0(cz_Eh0, HACEK, E)
-CZ_0(cz_Ic0, CARKA, I)
-CZ_0(cz_Nh0, HACEK, N)
-CZ_0(cz_Oc0, CARKA, O)
-CZ_0(cz_Rh0, HACEK, R)
-CZ_0(cz_Sh0, HACEK, S)
-CZ_0(cz_Th0, HACEK, T)
-CZ_0(cz_Uc0, CARKA, U)
-CZ_0(cz_Uk0, KROUZEK, U)
-CZ_0(cz_Yc0, CARKA, Y)
-CZ_0(cz_Zh0, HACEK, Z)
+U8_0(cz_Ac0, N0, N0,  E, N1, N0, N0,  C, N1) // Ctrl-Shift-U Ctrl 00E1/00C1 ENT
+U8_0(cz_Ch0, N0, N1, N0,  D, N0, N1, N0,  C)
+U8_0(cz_Dh0, N0, N1, N0,  F, N0, N1, N0,  E)
+U8_0(cz_Ec0, N0, N0,  E, N9, N0, N0,  C, N9)
+U8_0(cz_Eh0, N0, N1, N1,  B, N0, N1, N1,  A)
+U8_0(cz_Ic0, N0, N0,  E,  D, N0, N0,  C,  D)
+U8_0(cz_Nh0, N0, N1, N4, N8, N0, N1, N4, N7)
+U8_0(cz_Oc0, N0, N0,  F, N3, N0, N0,  D, N3)
+U8_0(cz_Rh0, N0, N1, N5, N9, N0, N1, N5, N8)
+U8_0(cz_Sh0, N0, N1, N6, N1, N0, N1, N6, N0)
+U8_0(cz_Th0, N0, N1, N6, N5, N0, N1, N6, N4)
+U8_0(cz_Uc0, N0, N0,  F,  A, N0, N0,  D,  A)
+U8_0(cz_Uk0, N0, N1, N6,  F, N0, N1, N6,  E)
+U8_0(cz_Yc0, N0, N0,  F,  D, N0, N0,  D,  D)
+U8_0(cz_Zh0, N0, N1, N7,  E, N0, N1, N7,  D)
