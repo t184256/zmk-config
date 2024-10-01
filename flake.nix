@@ -14,6 +14,7 @@
       nixpkgs.lib.genAttrs (nixpkgs.lib.attrNames zmk-nix.packages);
     suffices = [
       ".conf" ".keymap" ".dtsi" ".yml" ".shield" ".overlay" ".defconfig"
+      ".chars" ".py"
     ];
     src = nixpkgs.lib.sourceFilesBySuffices self suffices;
     zephyrDepsHash = "sha256-agazot1BTSrrYVB7c3781EUbClc/sL5tnTDWaP7sozI=";
@@ -32,8 +33,16 @@
         tailorSrc = name: pkgs.stdenvNoCC.mkDerivation {
           name = "zmk-configs-extended-source";
           src = filteredSrc;
-          phases = [ "unpackPhase" "patchPhase" "installPhase" ];
-          patchPhase = "for d in boards/*; do cp -r $d/* config/; done";
+          phases = [ "unpackPhase" "buildPhase" "installPhase" ];
+          nativeBuildInputs = [ pkgs.python3 ];
+          buildPhase = ''
+            for u in config/*.chars; do
+              b="$(basename "$u" .chars)"
+              python3 helpers/genunicode.py <"config/$b.chars" >"config/$b.dtsi"
+              rm $u
+            done
+            for d in boards/*; do cp -r $d/* config/; done
+          '';
           installPhase = "mkdir $out; cp -r config $out/";
         };
 
