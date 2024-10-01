@@ -1,0 +1,35 @@
+#define CZ_0(name, accent, key) \
+	name ## _lower: name ## _upper { compatible = "zmk,behavior-macro"; \
+		#binding-cells = <0>; \
+		bindings = <&kp accent>, <&kp key>, <&to 0>; \
+	}; \
+	name ## _upper: name ## _lower { compatible = "zmk,behavior-macro"; \
+		#binding-cells = <0>; \
+		bindings = <&kp accent>, <&kp LS(key)>, <&to 0>; \
+	}; \
+	name: name { \
+		compatible = "zmk,behavior-mod-morph"; \
+		#binding-cells = <0>; \
+		mods = <(MOD_LSFT|MOD_RSFT)>; \
+		bindings = <&name ## _lower>, <&name ## _upper>; \
+	};
+
+#define CARKA RA(SQT)
+#define HACEK RA(RS(DOT))
+#define KROUZEK RA(RS(N0))
+
+CZ_0(cz_Ac0, CARKA, A)
+CZ_0(cz_Ch0, HACEK, C)
+CZ_0(cz_Dh0, HACEK, D)
+CZ_0(cz_Ec0, CARKA, E)
+CZ_0(cz_Eh0, HACEK, E)
+CZ_0(cz_Ic0, CARKA, I)
+CZ_0(cz_Nh0, HACEK, N)
+CZ_0(cz_Oc0, CARKA, O)
+CZ_0(cz_Rh0, HACEK, R)
+CZ_0(cz_Sh0, HACEK, S)
+CZ_0(cz_Th0, HACEK, T)
+CZ_0(cz_Uc0, CARKA, U)
+CZ_0(cz_Uk0, KROUZEK, U)
+CZ_0(cz_Yc0, CARKA, Y)
+CZ_0(cz_Zh0, HACEK, Z)
