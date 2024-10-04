@@ -73,3 +73,13 @@ m_und0: m_und0 {
 	#binding-cells = <0>;
 	bindings = <&kp LS(MINUS)>, <&to 0>;
 };
+m_home0: m_home0 {
+	compatible = "zmk,behavior-macro";
+	#binding-cells = <0>;
+	bindings = <&kp HOME>, <&to 0>;
+};
+m_end0: m_end0 {
+	compatible = "zmk,behavior-macro";
+	#binding-cells = <0>;
+	bindings = <&kp END>, <&to 0>;
+};
