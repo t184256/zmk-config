@@ -1,35 +1,34 @@
-m_bsl0: m_bsl0{
+m_bsl0: m_bsl0 {
 	compatible = "zmk,behavior-macro";
 	#binding-cells = <0>;
 	bindings = <&kp BACKSLASH>, <&to 0>;
 };
-m_grave0: m_grave0{
+m_grave0: m_grave0 {
 	compatible = "zmk,behavior-macro";
 	#binding-cells = <0>;
 	bindings = <&kp GRAVE>, <&to 0>;
 };
-m_equal0: m_equal0{
+m_equal0: m_equal0 {
 	compatible = "zmk,behavior-macro";
 	#binding-cells = <0>;
 	bindings = <&kp EQUAL>, <&to 0>;
 };
-m_lock0: m_lock0{
+m_lock0: m_lock0 {
 	compatible = "zmk,behavior-macro";
-	label = "m_lock_to_0";
 	#binding-cells = <0>;
 	bindings = <&kp LG(L)>, <&to 0>;
 };
-m_plus0: m_plus0{
+m_plus0: m_plus0 {
 	compatible = "zmk,behavior-macro";
 	#binding-cells = <0>;
 	bindings = <&kp LS(EQUAL)>, <&to 0>;
 };
-m_rcb0: m_rcb0{
+m_rcb0: m_rcb0 {
 	compatible = "zmk,behavior-macro";
 	#binding-cells = <0>;
 	bindings = <&kp LS(RIGHT_BRACKET)>, <&to 0>;
 };
-m_lcb0: m_lcb0{
+m_lcb0: m_lcb0 {
 	compatible = "zmk,behavior-macro";
 	#binding-cells = <0>;
 	bindings = <&kp LS(LEFT_BRACKET)>, <&to 0>;
@@ -49,6 +48,95 @@ m_tilde0: m_tilde0{
 	#binding-cells = <0>;
 	bindings = <&kp LS(GRAVE)>, <&to 0>;
 };
+m_home0: m_home0 {
+	compatible = "zmk,behavior-macro";
+	#binding-cells = <0>;
+	bindings = <&kp HOME>, <&to 0>;
+};
+m_end0: m_end0 {
+	compatible = "zmk,behavior-macro";
+	#binding-cells = <0>;
+	bindings = <&kp END>, <&to 0>;
+};
+m_und0: m_und0 {
+	compatible = "zmk,behavior-macro";
+	#binding-cells = <0>;
+	bindings = <&kp LS(MINUS)>, <&to 0>;
+};
+
+m_bsl4: m_bsl4 {
+	compatible = "zmk,behavior-macro";
+	#binding-cells = <0>;
+	bindings = <&kp BACKSLASH>, <&to 4>;
+};
+/*
+m_grave4: m_grave4 {
+	compatible = "zmk,behavior-macro";
+	#binding-cells = <0>;
+	bindings = <&kp GRAVE>, <&to 4>;
+};
+*/
+m_equal4: m_equal4 {
+	compatible = "zmk,behavior-macro";
+	#binding-cells = <0>;
+	bindings = <&kp EQUAL>, <&to 4>;
+};
+m_lock4: m_lock4 {
+	compatible = "zmk,behavior-macro";
+	#binding-cells = <0>;
+	bindings = <&kp LG(L)>, <&to 4>;
+};
+m_plus4: m_plus4 {
+	compatible = "zmk,behavior-macro";
+	#binding-cells = <0>;
+	bindings = <&kp LS(EQUAL)>, <&to 4>;
+};
+m_rcb4: m_rcb4 {
+	compatible = "zmk,behavior-macro";
+	#binding-cells = <0>;
+	bindings = <&kp LS(RIGHT_BRACKET)>, <&to 4>;
+};
+m_lcb4: m_lcb4 {
+	compatible = "zmk,behavior-macro";
+	#binding-cells = <0>;
+	bindings = <&kp LS(LEFT_BRACKET)>, <&to 4>;
+};
+m_rsb4: m_rsb4{
+	compatible = "zmk,behavior-macro";
+	#binding-cells = <0>;
+	bindings = <&kp RIGHT_BRACKET>, <&to 4>;
+};
+m_lsb4: m_lsb4{
+	compatible = "zmk,behavior-macro";
+	#binding-cells = <0>;
+	bindings = <&kp LEFT_BRACKET>, <&to 4>;
+};
+m_tilde4: m_tilde4{
+	compatible = "zmk,behavior-macro";
+	#binding-cells = <0>;
+	bindings = <&kp LS(GRAVE)>, <&to 4>;
+};
+m_slash4: m_slash4{
+	compatible = "zmk,behavior-macro";
+	#binding-cells = <0>;
+	bindings = <&kp SLASH>, <&to 4>;
+};
+m_home4: m_home4 {
+	compatible = "zmk,behavior-macro";
+	#binding-cells = <0>;
+	bindings = <&kp HOME>, <&to 4>;
+};
+m_end4: m_end4 {
+	compatible = "zmk,behavior-macro";
+	#binding-cells = <0>;
+	bindings = <&kp END>, <&to 4>;
+};
+m_dash4: m_dash4 {
+	compatible = "zmk,behavior-macro";
+	#binding-cells = <0>;
+	bindings = <&kp MINUS>, <&to 4>;
+};
+
 bt_sel: bt_sel {
 	compatible = "zmk,behavior-macro-one-param";
 	#binding-cells = <1>;
@@ -67,9 +155,4 @@ m_wm: m_wm {
 		<&macro_release &kp MACRO_PLACEHOLDER>,
 		<&macro_release &kp LGUI>,
 		<&macro_release &kp LALT>;
-};
-m_und0: m_und0 {
-	compatible = "zmk,behavior-macro";
-	#binding-cells = <0>;
-	bindings = <&kp LS(MINUS)>, <&to 0>;
 };
