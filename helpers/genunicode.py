@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Generate czech.dtsi / russian.dtsi / ..."""
+"""Generate cz.dtsi / ru.dtsi / ..."""
 
 import sys
 

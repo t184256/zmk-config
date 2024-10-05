@@ -12,7 +12,7 @@
   behaviors {
     #include "macros.dtsi"
     #include "custom.dtsi"
-    #include "czech.dtsi"
+    #include "cz.dtsi"
   };
 
     keymap {
