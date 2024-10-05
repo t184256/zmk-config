@@ -1,4 +1,4 @@
-#define kp4n(n1, n2, n3, n4) &kp n1 &kp n2 &kp n3 &kp n4 &kp KP_ENTER
+#define kp4n(n1, n2, n3, n4) &kp n1 &kp n2 &kp n3 &kp n4 &kp SPACE
 #define unicode_macro(name, n1, n2, n3, n4, more) \
 	name: name { compatible = "zmk,behavior-macro"; \
 		wait-ms = <0>; \
