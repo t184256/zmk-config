@@ -99,6 +99,10 @@
           reset-adv360-right = zmk-nix-pkgs.flash.override {
             firmware = resetfw-adv360-right;
           };
+          flash-adv360 = pkgs.writeScriptBin "flash-adv360" ''
+            ${flash-adv360-left}/bin/zmk-uf2-flash && \
+              ${flash-adv360-right}/bin/zmk-uf2-flash
+          '';
         };
       in
       {
