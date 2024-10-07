@@ -145,7 +145,7 @@ bt_sel: bt_sel {
 m_wm: m_wm {
 	compatible = "zmk,behavior-macro-one-param";
 	#binding-cells = <1>;
-	wait-ms = <5>;
+	wait-ms = <2>;  // TODO: try 0
 	bindings =
 		<&macro_press &kp LSHIFT>,
 		<&macro_press &kp LALT>,
