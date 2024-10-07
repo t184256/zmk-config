@@ -25,7 +25,7 @@ ru_bsp_tap: ru_bsp_tap {
 	compatible = "zmk,behavior-tap-dance";
 	#binding-cells = <0>;
 	tapping-term-ms = <300>;
-	bindings = <&htap 5 6>, <&to 7>;
+	bindings = <&htap 5 6>, <&to 0>;
 };
 ru_bsp_mod: ru_bsp_mod {
 	compatible = "zmk,behavior-mod-morph";
