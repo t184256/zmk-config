@@ -17,7 +17,7 @@
       ".chars" ".py"
     ];
     src = nixpkgs.lib.sourceFilesBySuffices self suffices;
-    zephyrDepsHash = "sha256-agazot1BTSrrYVB7c3781EUbClc/sL5tnTDWaP7sozI=";
+    zephyrDepsHash = "sha256-D5CAlrO/E6DPbtUJyh/ec8ACpo1XM1jx2gLS2TpklBQ=";
     meta = {
       description = "ZMK firmware";
       license = nixpkgs.lib.licenses.mit;
