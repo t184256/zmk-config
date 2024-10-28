@@ -1,14 +1,21 @@
 #define kp4n(n1, n2, n3, n4) &kp n1 &kp n2 &kp n3 &kp n4 &kp SPACE
 #define unicode_macro(name, n1, n2, n3, n4, more) \
 	name: name { compatible = "zmk,behavior-macro"; \
-		wait-ms = <10>; \
-                tap-ms = <10>; \
+		wait-ms = <5>; \
+                tap-ms = <5>; \
 		#binding-cells = <0>; \
 		bindings = \
-			<&macro_tap &kp LC(LS(U))>, \
-			<&macro_wait_time 2>, \
-			<&macro_tap_time 2>, \
-			<&macro_tap &kp LALT kp4n(n1, n2, n3, n4) more>; \
+			<&macro_press &kp LCTRL>, \
+			<&macro_press &kp LSHIFT>, \
+			<&macro_press &kp U>, \
+			<&macro_release &kp U>, \
+			<&macro_press &none>, \
+			<&macro_release &kp LSHIFT>, \
+			<&macro_release &kp LCTRL>, \
+			<&macro_wait_time 1>, <&macro_tap_time 1>, \
+			<&macro_tap kp4n(n1, n2, n3, n4) more>, \
+			<&macro_wait_time 10>, \
+			<&macro_press &none>; \
 	};
 
 #define U8_(name, l1, l2, l3, l4, u1, u2, u3, u4, more) \
@@ -17,7 +24,7 @@
 	name: name { \
 		compatible = "zmk,behavior-mod-morph"; \
 		#binding-cells = <0>; \
-		mods = <(MOD_LSFT|MOD_RSFT)>; \
+		mods = <(MOD_RSFT)>; \
 		bindings = <&name ## _lower>, <&name ## _upper>; \
 	};
 
