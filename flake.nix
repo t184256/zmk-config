@@ -35,6 +35,11 @@
           phases = [ "unpackPhase" "buildPhase" "installPhase" ];
           nativeBuildInputs = [ pkgs.python3 ];
           buildPhase = ''
+            [[ -e boards/${name} ]]
+            if [[ -d boards/${name}/shield ]]; then
+              mkdir -p config/boards/shields
+              mv boards/${name}/shield config/boards/shields/${name}
+            fi
             mv boards/${name}/* config/
             rm -r boards
             for u in config/*.chars; do
@@ -66,6 +71,14 @@
           name = "firmware";  # to reuse deps
           board = "adv360pro_right";
           src = tailorSrc "adv360";
+        };
+        # Paintbrush
+        template-paintbrush = {
+          inherit zephyrDepsHash meta;
+          name = "firmware";  # to reuse deps
+          board = "mikoto@7.2";
+          shield = "paintbrush";
+          src = tailorSrc "paintbrush";
         };
 
         buildables = rec {
@@ -103,6 +116,12 @@
             ${flash-adv360-left}/bin/zmk-uf2-flash && \
               ${flash-adv360-right}/bin/zmk-uf2-flash
           '';
+
+          # Paintbrush
+          fw-paintbrush = zmk-nix-lpkgs.buildKeyboard template-paintbrush;
+          flash-paintbrush = zmk-nix-pkgs.flash.override {
+            firmware = fw-paintbrush;
+          };
         };
       in
       {
