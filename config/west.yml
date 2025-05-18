@@ -2,8 +2,6 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
-    - name: SolidHal
-      url-base: https://github.com/SolidHal
   projects:
     - name: zephyr
       remote: zmkfirmware
@@ -29,8 +27,8 @@ manifest:
           - edtt
           - trusted-firmware-m
     - name: zmk
-      remote: SolidHal
-      revision: 9595896a84a8557ed639368133bef60f80bea016  # fix_macro_key_release_state
+      remote: zmkfirmware
+      revision: 461f5c832fb8854d87dca54d113d306323697219  # main
       import: app/west.yml
   self:
     path: config
