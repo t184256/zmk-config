@@ -16,7 +16,7 @@
       ".conf" ".keymap" ".dtsi" ".yml" ".shield" ".overlay" ".defconfig"
       ".chars" ".py"
     ];
-    src = nixpkgs.lib.sourceFilesBySuffices self suffices;
+    filteredSrc = nixpkgs.lib.sourceFilesBySuffices self suffices;
     zephyrDepsHash = "sha256-0BP59HoctWEiL7CK0kD5MljdqYfFQ3kebgFo5gZh4qU=";
     meta = {
       description = "ZMK firmware";
@@ -29,19 +29,19 @@
         pkgs = nixpkgs.legacyPackages.${system};
         zmk-nix-lpkgs = zmk-nix.legacyPackages.${system};
         zmk-nix-pkgs = zmk-nix.packages.${system};
-        filteredSrc = nixpkgs.lib.sourceFilesBySuffices self suffices;
         tailorSrc = name: pkgs.stdenvNoCC.mkDerivation {
           name = "zmk-configs-extended-source";
           src = filteredSrc;
           phases = [ "unpackPhase" "buildPhase" "installPhase" ];
           nativeBuildInputs = [ pkgs.python3 ];
           buildPhase = ''
+            mv boards/${name}/* config/
+            rm -r boards
             for u in config/*.chars; do
               b="$(basename "$u" .chars)"
               python3 helpers/genunicode.py <"config/$b.chars" >"config/$b.dtsi"
               rm $u
             done
-            for d in boards/*; do cp -r $d/* config/; done
           '';
           installPhase = "mkdir $out; cp -r config $out/";
         };
