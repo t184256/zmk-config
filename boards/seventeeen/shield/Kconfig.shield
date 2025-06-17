@@ -1,0 +1,5 @@
+config SHIELD_SEVENTEEEN_LEFT
+	def_bool $(shields_list_contains,seventeeen_left)
+
+config SHIELD_SEVENTEEEN_RIGHT
+	def_bool $(shields_list_contains,seventeeen_right)
