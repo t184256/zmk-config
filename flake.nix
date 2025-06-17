@@ -80,6 +80,14 @@
           shield = "paintbrush";
           src = tailorSrc "paintbrush";
         };
+        # Seventeeen
+        template-seventeeen = {
+          inherit zephyrDepsHash meta;
+          name = "firmware";  # to reuse deps
+          board = "seeeduino_xiao_ble";
+          shield = "seventeeen";
+          src = tailorSrc "seventeeen";
+        };
 
         buildables = rec {
           # Allium58
@@ -121,6 +129,17 @@
           fw-paintbrush = zmk-nix-lpkgs.buildKeyboard template-paintbrush;
           flash-paintbrush = zmk-nix-pkgs.flash.override {
             firmware = fw-paintbrush;
+          };
+
+          # Seventeeen
+          fw-seventeeen = zmk-nix-lpkgs.buildKeyboard template-seventeeen;
+          flash-seventeeen = zmk-nix-pkgs.flash.override {
+            firmware = fw-seventeeen;
+          };
+          resetfw-xiao-ble-sense = zmk-nix-lpkgs.buildKeyboard
+            (template-seventeeen // { shield = "settings_reset"; } );
+          reset-seventeeen = zmk-nix-pkgs.flash.override {
+            firmware = resetfw-xiao-ble-sense;
           };
         };
       in

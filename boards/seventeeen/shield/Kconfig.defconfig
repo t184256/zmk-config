@@ -1,0 +1,5 @@
+if SHIELD_SEVENTEEEN
+
+config ZMK_KEYBOARD_NAME
+	default "seventeeen"
+endif
