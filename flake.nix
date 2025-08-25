@@ -17,7 +17,7 @@
       ".chars" ".py"
     ];
     filteredSrc = nixpkgs.lib.sourceFilesBySuffices self suffices;
-    zephyrDepsHash = "sha256-+Lzd4NEtp2dkR/1aD0q4qSof6728NPdAya/dW1IU9V0=";
+    zephyrDepsHash = "sha256-dGTI/o5TR6e3TH5n1YhnxAViY6VTiVIrWm6BRUW5vjw=";
     meta = {
       description = "ZMK firmware";
       license = nixpkgs.lib.licenses.mit;
@@ -85,7 +85,7 @@
           inherit zephyrDepsHash meta;
           name = "firmware";  # to reuse deps
           board = "seeeduino_xiao_ble";
-          shield = "seventeeen_%PART%";
+          shield = "seventeeen_%PART% rgbled_adapter";
           src = tailorSrc "seventeeen";
         };
 
