@@ -1,2 +1,5 @@
-config SHIELD_PAINTBRUSH
-	def_bool $(shields_list_contains,paintbrush)
+config SHIELD_PAINTBRUSH_LEFT
+	def_bool $(shields_list_contains,paintbrush_left)
+
+config SHIELD_PAINTBRUSH_RIGHT
+	def_bool $(shields_list_contains,paintbrush_right)

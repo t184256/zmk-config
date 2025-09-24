@@ -73,11 +73,18 @@
           src = tailorSrc "adv360";
         };
         # Paintbrush
-        template-paintbrush = {
+        template-paintbrush-left = {
           inherit zephyrDepsHash meta;
           name = "firmware";  # to reuse deps
           board = "mikoto@7.2";
-          shield = "paintbrush";
+          shield = "paintbrush_left";
+          src = tailorSrc "paintbrush";
+        };
+        template-paintbrush-right = {
+          inherit zephyrDepsHash meta;
+          name = "firmware";  # to reuse deps
+          board = "mikoto@7.2";
+          shield = "paintbrush_right";
           src = tailorSrc "paintbrush";
         };
         # Seventeeen
@@ -126,9 +133,13 @@
           '';
 
           # Paintbrush
-          fw-paintbrush = zmk-nix-lpkgs.buildKeyboard template-paintbrush;
-          flash-paintbrush = zmk-nix-pkgs.flash.override {
-            firmware = fw-paintbrush;
+          fw-paintbrush-left = zmk-nix-lpkgs.buildKeyboard template-paintbrush-left;
+          flash-paintbrush-left = zmk-nix-pkgs.flash.override {
+            firmware = fw-paintbrush-left;
+          };
+          fw-paintbrush-right = zmk-nix-lpkgs.buildKeyboard template-paintbrush-right;
+          flash-paintbrush-right = zmk-nix-pkgs.flash.override {
+            firmware = fw-paintbrush-right;
           };
 
           # Seventeeen

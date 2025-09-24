@@ -1,8 +1,13 @@
-if SHIELD_PAINTBRUSH
-
+if SHIELD_PAINTBRUSH_LEFT
 config ZMK_KEYBOARD_NAME
-	default "Paintbrush"
+	default "Paintbrush L"
+endif
+if SHIELD_PAINTBRUSH_RIGHT
+config ZMK_KEYBOARD_NAME
+	default "Paintbrush R"
+endif
 
+if SHIELD_PAINTBRUSH_LEFT || SHIELD_PAINTBRUSH_RIGHT
 config I2C
 	default y
 
