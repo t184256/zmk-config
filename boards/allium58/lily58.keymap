@@ -22,15 +22,15 @@
         default_layer {  // 0
             bindings = <
 // ╭──────────┬──────────┬──────────┬──────────┬──────────┬──────────╮                       ╭──────────┬──────────┬──────────┬──────────┬──────────┬──────────╮
-      &none      &kp N1     &kp N2     &kp N3     &kp N4     &kp N5                             &kp N6     &kp N7     &kp N8     &kp N9     &kp N0      &none
+      &none      &kp N1     &kp N2     &kp N3     &kp N4     &kp N5                             &kp N6     &kp N7     &kp N8     &kp N9     &kp N0 &mt LSHFT TAB
 // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤                       ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
      &kp TAB     &kp Q      &kp W      &kp F      &kp P      &kp G                               &kp J      &kp L      &kp U      &kp Y    &kp SEMI  &minuspipe
 // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤                       ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
- &mt LCTRL ESC   &kp A      &kp R      &kp S      &kp T      &kp D                               &kp H      &kp N      &kp E      &kp I      &kp O     &kp SQT
+ &mt LCTRL ESC   &kp A      &kp R      &kp S      &kp T      &kp D                               &kp H      &kp N      &kp E      &kp I      &kp O &mt LCTRL SQT
 // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤╭─────────╮ ╭─────────╮├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
-    &kp LSHFT    &kp Z      &kp X      &kp C      &kp V      &kp B    &kp K_BACK     &none       &kp K      &kp M    &kp COMMA   &kp DOT   &kp FSLH     &none
+    &kp LSHFT    &kp Z      &kp X      &kp C      &kp V      &kp B    &kp K_BACK    &bsp_mod     &kp K      &kp M    &kp COMMA   &kp DOT  &kp FSLH &mt LCTRL ESC
 // ╰──────────┴──────────┴─────┬────┴─────┬────┴─────┬────┴─────┬────╯╰─────────╯ ╰─────────╯╰─────┬────┴─────┬────┴─────┬────┴─────┬────┴──────────┴──────────╯
-                                  &none     &kp LEFT  &kp RIGHT      &bsp_mod     &mt RSHIFT SPACE    &kp UP    &kp DOWN    &none
+                                  &none     &kp LEFT  &kp RIGHT      &bsp_mod     &mt RSHIFT SPACE   &kp DOWN    &kp UP   &kp RETURN
 //                             ╰──────────┴──────────┴──────────╯ ╰─────────────╯ ╰──────────────╯ ╰──────────┴──────────┴──────────╯
             >;
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
