@@ -1,0 +1,38 @@
+#include "crutch.dtsi"
+
+/* un-flipped:
+   "rows": bottom=P3, home=P4, top=P5, num=P6
+   "cols": outer=P0, pinky=P1, ring=P2, middle=P10, index=P9, inner=P8
+   "thumb": row=P6 (reused), column=P7
+
+   flipping keeps (by jumpers) P0, P1 and P2,
+        flips (by keeping) P10<->P3, P9<->P4, P8<->P5, P7<->P6
+   "rows": bottom=P10, home=P9, top=P8, num=P7
+   "cols": outer=P0, pinky=P1, ring=P2, middle=P3, index=P4, inner=P5
+   "thumb": row=P7 (reused), column=P6
+
+   this one is the flipped one for the right
+*/
+
+&default_transform {
+    col-offset = <0>;
+};
+
+&kscan0 {
+    col-gpios
+        = <&xiao_d 0 GPIO_ACTIVE_HIGH>
+        , <&xiao_d 1 GPIO_ACTIVE_HIGH>
+        , <&xiao_d 2 GPIO_ACTIVE_HIGH>
+        , <&xiao_d 3 GPIO_ACTIVE_HIGH>
+        , <&xiao_d 4 GPIO_ACTIVE_HIGH>
+        , <&xiao_d 5 GPIO_ACTIVE_HIGH>
+        , <&xiao_d 6 GPIO_ACTIVE_HIGH>
+        ;
+
+    row-gpios
+        = <&xiao_d 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+        , <&xiao_d 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+        , <&xiao_d 8 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+        , <&xiao_d 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+        ;
+};

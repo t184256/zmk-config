@@ -1,0 +1,3 @@
+config ZMK_KEYBOARD_NAME
+	# must be less than 16 characters long
+	default "crutch"

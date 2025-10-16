@@ -95,6 +95,14 @@
           shield = "seventeeen_%PART% rgbled_adapter";
           src = tailorSrc "seventeeen";
         };
+        # Crutch
+        template-crutch = {
+          inherit zephyrDepsHash meta;
+          name = "firmware";  # to reuse deps
+          board = "seeeduino_xiao_ble";
+          shield = "crutch rgbled_adapter";
+          src = tailorSrc "crutch";
+        };
 
         buildables = rec {
           # Allium58
@@ -151,6 +159,12 @@
             (template-seventeeen // { shield = "settings_reset"; } );
           reset-seventeeen = zmk-nix-pkgs.flash.override {
             firmware = resetfw-xiao-ble;
+          };
+
+          # Crutch
+          fw-crutch = zmk-nix-lpkgs.buildKeyboard template-crutch;
+          flash-crutch = zmk-nix-pkgs.flash.override {
+            firmware = fw-crutch;
           };
         };
       in
