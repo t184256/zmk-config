@@ -1,0 +1,16 @@
+# Copyright (c) 2020 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+description: |
+  Press-Release behavior
+
+  This behavior allows you to trigger one action when a key is pressed
+  and a different action when the key is released.
+
+compatible: "zmk,behavior-press-release"
+
+include: base.yaml
+
+binding-cells:
+  - param1
+  - param2

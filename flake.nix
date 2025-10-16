@@ -13,8 +13,8 @@
     forAllSystems =
       nixpkgs.lib.genAttrs (nixpkgs.lib.attrNames zmk-nix.packages);
     suffices = [
-      ".conf" ".keymap" ".dtsi" ".yml" ".shield" ".overlay" ".defconfig"
-      ".chars" ".py"
+      ".conf" ".keymap" ".dtsi" ".yml" ".yaml" ".shield" ".overlay" ".defconfig"
+      ".chars" ".py" ".c" ".h" ".txt" "Kconfig" "CMakeLists.txt"
     ];
     filteredSrc = nixpkgs.lib.sourceFilesBySuffices self suffices;
     zephyrDepsHash = "sha256-obBXo0q8MXH49NbILqm4z/DKsWAmLYP00bClTUhzPCE=";

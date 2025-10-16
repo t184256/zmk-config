@@ -35,5 +35,8 @@ manifest:
     - name: zmk-rgbled-widget
       remote: caksoylar
       revision: fbe6dde8ffa68fdcded1600a66aa18cf12a796fb  # main
+    - name: zmk-behavior-press-release
+      url: file:///tmp/zmk-config/zmk-behavior-press-release
+      revision: HEAD
   self:
     path: config

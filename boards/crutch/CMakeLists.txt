@@ -1,0 +1,1 @@
+target_sources_ifdef(CONFIG_ZMK_BEHAVIOR_PRESS_RELEASE app PRIVATE src/behaviors/behavior_press_release.c)

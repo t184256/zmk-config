@@ -1,0 +1,5 @@
+config ZMK_BEHAVIOR_PRESS_RELEASE
+	bool "Press-Release behavior"
+	default y
+	help
+	  Enable press-release behavior that can trigger different actions on press and release

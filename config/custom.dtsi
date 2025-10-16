@@ -88,3 +88,9 @@ ru_DOTC: ru_DOTC {
 	mods = <(MOD_LSFT|MOD_RSFT)>;
 };
 
+// Press-Release behavior example: sends A on press, B on release
+pr_example: press_release_example {
+	compatible = "zmk,behavior-press-release";
+	#binding-cells = <2>;
+};
+
