@@ -234,7 +234,14 @@ SNIPPET = f'''
     {macro_seq('he_c', 'H', 'E', capitalize=True)}
     {macro_seq('ha')}
     {macro_seq('ha_c', 'H', 'A', capitalize=True)}
-    eng: engine {{
+    enl: engine_left {{
+        compatible = "zmk,behavior-engine";
+        #binding-cells = <1>;
+        // Partial(prefix)/Exact, Continued/Final, Up/Down/Both
+        config = "{genconfig(mappings)}";
+        bindings = {genbindings(mappings)};
+    }};
+    enr: engine_right {{
         compatible = "zmk,behavior-engine";
         #binding-cells = <1>;
         // Partial(prefix)/Exact, Continued/Final, Up/Down/Both

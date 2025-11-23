@@ -9,7 +9,7 @@
         //#include "custom.dtsi"
         //#include "cz.dtsi"
         //#include "ru.dtsi"
-        #include "engine.dtsi"
+        #include "engine.dtsi"  // only uses &enr
     };
     keymap {
         compatible = "zmk,keymap";
@@ -19,13 +19,13 @@
 // ╭──────────┬──────────┬──────────┬──────────┬──────────╮
       &none      &none      &none      &none      &none
 // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────╮
-    &kp RETURN   &eng 5     &eng 6     &eng 7     &eng 8     &kp TAB
+    &kp RETURN   &enr 5     &enr 6     &enr 7     &enr 8     &kp TAB
 // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
-     &kp BSPC    &eng 1     &eng 2     &eng 3     &eng 4   &kp ESCAPE
+     &kp BSPC    &enr 1     &enr 2     &enr 3     &enr 4   &kp ESCAPE
 // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────╯
       &none     &kp LEFT    &kp UP    &kp DOWN   &kp RIGHT
 // ├──────────┼──────────┴──────────┴──────────┴──────────╯
-      &eng 0
+      &enr 0
 // ╰──────────╯
             >;
         };
