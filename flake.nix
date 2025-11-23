@@ -17,7 +17,7 @@
       ".chars" ".py"
     ];
     filteredSrc = nixpkgs.lib.sourceFilesBySuffices self suffices;
-    zephyrDepsHash = "sha256-obBXo0q8MXH49NbILqm4z/DKsWAmLYP00bClTUhzPCE=";
+    zephyrDepsHash = "sha256-+AxYeb9en/iE+ab2bW/hEfSjJ4E1QKlxoab4INg52do=";
     meta = {
       description = "ZMK firmware";
       license = nixpkgs.lib.licenses.mit;
@@ -47,6 +47,7 @@
               python3 helpers/genunicode.py <"config/$b.chars" >"config/$b.dtsi"
               rm $u
             done
+            python3 helpers/genengine.py >"config/engine.dtsi"
           '';
           installPhase = "mkdir $out; cp -r config $out/";
         };

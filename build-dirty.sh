@@ -10,6 +10,19 @@ set -euo pipefail
 # Example: ./build-dirty.sh --update zmk
 # Example: ./build-dirty.sh --update-all
 
+# Ensure we're in the repo root
+REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd "$REPO_ROOT"
+
+# Check if west workspace is initialized
+if [ ! -d ".west" ]; then
+    echo "Initializing west workspace..."
+    west init -l config
+    echo "Updating west dependencies (this may take a while)..."
+    west update
+fi
+
+
 if [ $# -lt 1 ]; then
     echo "Usage: $0 <keyboard> [--flash]"
     echo "       $0 --update <dependency>"
@@ -73,6 +86,7 @@ fi
 case "$KEYBOARD" in
     crutch)
         BOARD="seeeduino_xiao_ble"
+        #SHIELD="crutch"
         SHIELD="crutch rgbled_adapter"
         SHIELD_DIR="boards/crutch/shield"
         ;;
@@ -87,18 +101,6 @@ case "$KEYBOARD" in
         exit 1
         ;;
 esac
-
-# Ensure we're in the repo root
-REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-cd "$REPO_ROOT"
-
-# Check if west workspace is initialized
-if [ ! -d ".west" ]; then
-    echo "Initializing west workspace..."
-    west init -l config
-    echo "Updating west dependencies (this may take a while)..."
-    west update
-fi
 
 # Check if Zephyr exists
 if [ ! -d "zephyr" ]; then
@@ -140,9 +142,13 @@ for chars_file in "$WEST_CONFIG"/*.chars; do
     fi
 done
 
+python3 "$REPO_ROOT/helpers/genengine.py" > "$WEST_CONFIG/engine.dtsi"
+
 # Build with west
 export ZEPHYR_BASE=$REPO_ROOT/zephyr
-west build -d $BUILD_DIR/build -b $BOARD -s zmk/app -- \
+west build -d $BUILD_DIR/build -b $BOARD -s zmk/app \
+    -S zmk-usb-logging \
+    -- \
     -DSHIELD="$SHIELD" \
     -DZMK_CONFIG=$WEST_CONFIG \
     -DZephyr_DIR=$REPO_ROOT/zephyr/share/zephyr-package/cmake
