@@ -104,6 +104,14 @@
           shield = "crutch rgbled_adapter";
           src = tailorSrc "crutch";
         };
+        # Crack
+        template-crack = {
+          inherit zephyrDepsHash meta;
+          name = "firmware";  # to reuse deps
+          board = "seeeduino_xiao_ble";
+          shield = "crack rgbled_adapter";
+          src = tailorSrc "crack";
+        };
 
         buildables = rec {
           # Allium58
@@ -166,6 +174,12 @@
           fw-crutch = zmk-nix-lpkgs.buildKeyboard template-crutch;
           flash-crutch = zmk-nix-pkgs.flash.override {
             firmware = fw-crutch;
+          };
+
+          # Crack
+          fw-crack = zmk-nix-lpkgs.buildKeyboard template-crack;
+          flash-crack = zmk-nix-pkgs.flash.override {
+            firmware = fw-crack;
           };
         };
       in

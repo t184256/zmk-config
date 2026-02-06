@@ -1,0 +1,26 @@
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+
+/ {
+    behaviors {
+        #include "macros.dtsi"
+        #include "engine.dtsi"  // only uses &enr
+    };
+    keymap {
+        compatible = "zmk,keymap";
+
+        default_layer {  // 0
+            bindings = <
+//            ╭──────────┬──────────┬──────────┬──────────╮
+                 &enr 5     &enr 6     &enr 7     &enr 8
+//            ├──────────┼──────────┼──────────┼──────────┤
+                 &enr 1     &enr 2     &enr 3     &enr 4
+//            ╰──────────┴──────────┴──────────┴──────────╯
+// ╭──────────╮
+      &enr 0
+// ╰──────────╯
+            >;
+        };
+    };
+};
